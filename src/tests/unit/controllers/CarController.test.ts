@@ -27,8 +27,8 @@ constructor(){}
   
 }
 
-describe('Car Controller', () => {
-  describe('Sucesso no create', async ( )=> {
+describe('CarController Test', () => {
+  describe('Create Car', async ( )=> {
     const req = {} as Request;
     const res = {} as Response;
     const next = () => ({}) as NextFunction;
@@ -38,7 +38,7 @@ describe('Car Controller', () => {
       res.json = sinon.stub().returns(res);
       req.body = carMocked
     });
-    it('create',async () => {
+    it('Sucesso',async () => {
       const carController = new CarController(new CarServiceMock());
       await carController.create(req, res, next);
   
@@ -47,7 +47,7 @@ describe('Car Controller', () => {
 
     })
 
-    describe('Sucesso no read', async ( )=> {
+    describe('Read Car', async ( )=> {
       const req = {} as Request;
       const res = {} as Response;
       const next = () => ({}) as NextFunction;
@@ -57,7 +57,7 @@ describe('Car Controller', () => {
         res.json = sinon.stub().returns(res);
         req.body = {}
       });
-      it('read',async () => {
+      it('Sucesso',async () => {
         const carController = new CarController(new CarServiceMock());
         await carController.read(req, res, next);
     
@@ -65,7 +65,7 @@ describe('Car Controller', () => {
       })
   })
 
-  describe('Sucesso no readOne', async ( )=> {
+  describe('ReadOne Car', async ( )=> {
     const req = {} as Request;
     const res = {} as Response;
     const next = () => ({}) as NextFunction;
@@ -75,7 +75,7 @@ describe('Car Controller', () => {
       res.json = sinon.stub().returns(res);
       req.params = {id: 'asdgfhgjhksdfghjhgfdfghjjhgfdfghj'}
     });
-    it('read',async () => {
+    it('Sucesso',async () => {
       const carController = new CarController(new CarServiceMock());
       await carController.readOne(req, res, next);
   
@@ -83,7 +83,7 @@ describe('Car Controller', () => {
     })
 })
 
-describe('Sucesso do Update', async ( )=> {
+describe('Update Car', async ( )=> {
   const req = {} as Request;
   const res = {} as Response;
   const next = () => ({}) as NextFunction;
@@ -94,7 +94,7 @@ describe('Sucesso do Update', async ( )=> {
     req.params = {id: 'asdgfhgjhksdfghjhgfdfghjjhgfdfghj'}
     req.body = carMocked
   });
-  it('delete',async () => {
+  it('Sucesso',async () => {
     const carController = new CarController(new CarServiceMock());
     await carController.update(req, res, next);
 
@@ -102,7 +102,7 @@ describe('Sucesso do Update', async ( )=> {
   })
 })
 
-describe('Sucesso no delete', async ( )=> {
+describe('Delete Car', async ( )=> {
   const req = {} as Request;
   const res = {} as Response;
   const next = () => ({}) as NextFunction;
@@ -113,7 +113,7 @@ describe('Sucesso no delete', async ( )=> {
     req.params = {id: 'asdgfhgjhksdfghjhgfdfghj'}
     req.body = carMocked
   });
-  it('read',async () => {
+  it('Sucesso',async () => {
     const carController = new CarController(new CarServiceMock());
     await carController.delete(req, res, next);
 
