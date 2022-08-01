@@ -1,5 +1,32 @@
 import express from 'express';
+import connectToDatabase from './connection';
 
-const app = express();
+class App {
+  public app: express.Application;
 
-export default app;
+  constructor() {
+    this.app = express();
+    this.app.use(express.json());
+  }
+
+  public startServer(PORT: string | number = 3001): void {
+    connectToDatabase();
+    this.app.listen(PORT, () =>
+      console.log(`Server running here 👉 http://localhost:${PORT}`));
+  }
+
+  public addMiddleware(
+    middleware:
+    | express.Router
+    | express.ErrorRequestHandler
+    | express.NextFunction,
+  ) {
+    this.app.use(middleware);
+  }
+
+  public getApp() {
+    return this.app;
+  }
+}
+
+export default App;
