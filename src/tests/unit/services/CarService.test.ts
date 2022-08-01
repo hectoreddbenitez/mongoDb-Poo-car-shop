@@ -1,22 +1,15 @@
 import { expect } from 'chai';
-import { Types } from 'mongoose';
 import { ICar } from '../../../interfaces/ICar';
 import { IModel } from '../../../interfaces/IModel';
-// import CarModel from '../../../models/CarModel';
 import CarService from '../../../services/CarService';
-// import carMocked from '../Mocks/CarMocks';
 import carMocks from '../Mocks/CarMocks';
 
-interface CarIndexavel extends ICar {
-_id: Types.ObjectId,
-}
-// const _id = new Types.ObjectId();
+
 class CarModelMock implements IModel<ICar> {
     constructor() {}
  async create(obj: ICar): Promise<ICar> {
 
     return carMocks
-    // return {_id,...obj}
   }
   async read(): Promise<ICar[]> {
     return [carMocks]
