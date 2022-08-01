@@ -1,32 +1,15 @@
 import express from 'express';
-import connectToDatabase from './connection';
+import errorMiddleware from './middlewares/errorMiddlewares';
+import carRouter from './routes/CarRouter';
 
-class App {
-  public app: express.Application;
+const app = express();
+// import errorMiddleware from './middlewares/errorMiddleware';
+// import motoRouter from './routes/MotoRouter';
+app.use(express.json());
+app.use(carRouter);
+app.use(errorMiddleware);
 
-  constructor() {
-    this.app = express();
-    this.app.use(express.json());
-  }
+// server.addMiddleware(motoRouter);
+// server.addMiddleware(errorMiddleware);
 
-  public startServer(PORT: string | number = 3001): void {
-    connectToDatabase();
-    this.app.listen(PORT, () =>
-      console.log(`Server running here 👉 http://localhost:${PORT}`));
-  }
-
-  public addMiddleware(
-    middleware:
-    | express.Router
-    | express.ErrorRequestHandler
-    | express.NextFunction,
-  ) {
-    this.app.use(middleware);
-  }
-
-  public getApp() {
-    return this.app;
-  }
-}
-
-export default App;
+export default app;
