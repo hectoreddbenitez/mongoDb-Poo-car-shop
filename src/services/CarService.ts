@@ -1,7 +1,7 @@
 import { ICar, CarAndVehicleSchema } from '../interfaces/ICar';
 import { IModel } from '../interfaces/IModel';
 import CarModel from '../models/CarModel';
-import CarServiceInterface from '../interfaces/CarServiceInterface';
+import CarServiceInterface from '../interfaces/ICarService';
 
 const NOT_FOUND = 'Object not found';
 export default class CarService implements CarServiceInterface {

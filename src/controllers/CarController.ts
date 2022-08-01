@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import CarControllerInterface from '../interfaces/CarControllerInterface';
-import CarServiceInterface from '../interfaces/CarServiceInterface';
+import CarControllerInterface from '../interfaces/ICarController';
+import CarServiceInterface from '../interfaces/ICarService';
 import CarService from '../services/CarService';
 
 const MINIMUM_LENGTH = 'Id must have 24 hexadecimal characters';
